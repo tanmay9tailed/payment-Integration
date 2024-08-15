@@ -9,7 +9,7 @@ function App() {
         name: name,
       };
 
-      const res = await axios.post("http://localhost:5000/api/createOrder", options);
+      const res = await axios.post("https://payment-integration-backend-theta.vercel.app/api/createOrder", options);
       const data = res.data;
 
       console.log("Entered");
@@ -28,7 +28,7 @@ function App() {
             signature: response.razorpay_signature,
           };
           axios
-            .post("http://localhost:5000/api/verifyPayment", option2)
+            .post("https://payment-integration-backend-theta.vercel.app/api/verifyPayment", option2)
             .then((res) => {
               if (res.data.success) {
                 alert("PAYMENT DONE");
